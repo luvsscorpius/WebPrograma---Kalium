@@ -1,0 +1,21 @@
+{
+  "ftp://anderson_vitor@172.16.80.179:21": {
+    "php": {
+      "listar_em_tabela_for.php": {
+        "type": "-",
+        "size": 1894,
+        "lmtime": 1679601240811,
+        "modified": false
+      }
+    },
+    "page": {
+      "abas.php": {
+        "type": "-",
+        "size": 24360,
+        "lmtime": 1679602188008,
+        "modified": false
+      }
+    }
+  },
+  "$version": 1
+}
