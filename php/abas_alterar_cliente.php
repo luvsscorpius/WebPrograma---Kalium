@@ -148,23 +148,9 @@
 								</div>
 								<div class="campo-entrada">
 									<label for="cidade_cli">Cidade</label>
-									<select name="cidade_cli" style="height: 25px;">
-									<option value="<?=$rows_clientes['cidade_idcidade']; ?>">
-									<?php include("conexao.php");
-            								$result_cliente = "SELECT nome FROM cidade WHERE idcidade=".$rows_clientes['cidade_idcidade'];
-											
-											$resultado_cliente = mysqli_query($conexao, $result_cliente);
-											if ($instrucao){
-												$rows_cliente = mysqli_fetch_array($resultado_cliente);
-											}else {
-											$erro = mysqli_error($conexao);
-											echo "<p> O seguinte erro ocorreu: ".$erro."</p>";
-											}
-										?>
-									</option>
-                                    
-                                    <?php include("../php/lista_cidade_be.php") ?>
-								</select>
+									<select  name="cidade_cli" style="height: 25px;">
+										<?php include("lista_cidade_be.php") ?>
+									</select>
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="bairro_cli">Bairro</label>
