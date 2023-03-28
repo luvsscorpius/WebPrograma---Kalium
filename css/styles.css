@@ -129,7 +129,7 @@ input.abas:checked+.abas_cab {
 
 .form-cadastro {
     flex: 1;
-    width: 900px;
+    width: 1125px;
     border-radius: 10px;
     background-color: #EEF0F1;
     border: 1px solid #999;
@@ -214,7 +214,7 @@ textarea {
 
 #form-cadastro-for {
     flex: 1;
-    width: 900px;
+    width: 1125px;
     border-radius: 10px;
     background-color: #EEF0F1;
     border: 1px solid #999;
@@ -224,7 +224,18 @@ textarea {
 
 #form-cadastro-pro {
     flex: 1;
-    width: 900px;
+    width: 1125px;
+    border-radius: 10px;
+    background-color: #EEF0F1;
+    border: 1px solid #999;
+    margin-top: 0px;
+    margin-bottom: auto;
+}
+
+
+#form-vendas {
+    flex: 1;
+    width: 1125px;
     border-radius: 10px;
     background-color: #EEF0F1;
     border: 1px solid #999;
@@ -249,7 +260,7 @@ textarea {
 
 #form-relatorio {
     flex: 1;
-    width: 900px;
+    width: 1125px;
     border-radius: 10px;
     background-color: #EEF0F1;
     border: 1px solid #999;
@@ -360,6 +371,7 @@ textarea {
 .btn1 {
     background: var(--cor_aba);
     color: #fff;
+    border-radius: 5px;
 }
 
 .btn1:hover {
@@ -392,18 +404,13 @@ textarea {
     display: flex;
     justify-content: center;
     color: var(--cor_aba);
+    transition: background .10s;
 }
 
 .btn-sep:hover {
-    transition: background .10s;
     background-color: var(--cor_aba);
     color: #fff;
 }
-
-#select-fornecedor {
-    width: 850px;
-}
-
 
 .btn1 {
     cursor: pointer;
