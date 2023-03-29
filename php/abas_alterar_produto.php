@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="icon" href="../img/favicon.png" type="image/png">
-		<link rel="stylesheet" href="../css/abas_css.css">
-		<link rel="stylesheet" href="../css/tabela_css.css">
+		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/tabela.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Cantarell|Courgette" rel="stylesheet">
@@ -328,6 +328,127 @@
 					</form>
 				</section>
 			</div>
+
+			<input type="radio" name="abas" class="abas" id="aba6" >
+			<label for="aba6" class="abas_cab">Vendedores</label>
+			<div>
+				<section id="setor-cadastro">
+					<form id="form-vendas" method= "post" action="../php/cadastro_fornecedor.php">
+						<!-- Cabeçalho do Formulário -->
+						<div class="cabeca">
+							<h2 style="color: #1BBA93; font-weight: bold;">Cadastro de Vendedores</h2>
+						</div>
+						<div class="form-corpo">
+							<div class="content">
+							<div class="separacao" style="border:2px solid transparent;">
+								<div class="linha-botoes">
+								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
+								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
+								</div>
+							</div>
+							<div class="linha">
+								<div class="campo-entrada-diverso" style="width: 30%;">
+									<label for="nome_ven">Nome</label>
+									<input type="text" name="nome_ven" id="txt_nome_ven" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 10%;">
+									<label for="cod_ven">Cod</label>
+									<input type="number" name="cod_ven" id="txt_cod_ven" maxlength="15" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada">
+									<label for="senha_ven">Senha</label>
+									<input type="password" name="senha_ven" id="txt_senha_ven" maxlength="9" style="height: 25px;">
+								</div>
+								<div class="campo-entrada">
+									<label for="conf_senha_ven">Confirmar senha</label>
+									<input type="password" name="conf_senha_ven" id="txt_conf_senha_ven" maxlength="9" style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 25%;">
+									<label for="cpf_ven">CPF</label>
+									<input type="number" name="cpf_ven" id="txt_cpf_ven" maxlength="9" style="height: 25px;">
+								</div>
+							</div>
+							<div class="linha">
+								<div class="campo-entrada-diverso" style="width: 12%;">
+									<label for="cep_for">CEP</label>
+									<input type="text" name="cep_for" id="txt_cep_for" maxlength="8" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 8%;">
+									<label for="uf_for">UF</label>
+									<select name="uf_cli" style="height: 25px;">
+										<option value="ac">AC</option>
+										<option value="al">AL</option>
+										<option value="ap">AP</option>
+										<option value="am">AM</option>
+										<option value="ba">BA</option>
+										<option value="ce">CE</option>
+										<option value="es">ES</option>
+										<option value="go">GO</option>
+										<option value="ma">MA</option>
+										<option value="mt">MT</option>
+										<option value="ms">MS</option>
+										<option value="mg">MG</option>
+										<option value="pa">PA</option>
+										<option value="pb">PB</option>
+										<option value="pr">PR</option>
+										<option value="pe">PE</option>
+										<option value="pi">PI</option>
+										<option value="rj">RJ</option>
+										<option value="rn">RN</option>
+										<option value="rs">RS</option>
+										<option value="ro">RO</option>
+										<option value="rr">RR</option>
+										<option value="sc">SC</option>
+										<option value="sp">SP</option>
+										<option value="se">SE</option>
+										<option value="to">TO</option>
+										<option value="df">DF</option>
+									</select>
+								</div>
+								<div class="campo-entrada">
+									<label for="cidade_for">Cidade</label>
+									<select name="cidade_for" style="height: 25px;">
+									<?php include("../php/lista_cidade_be.php") ?>
+									</select>
+								</div>
+								<div class="campo-entrada-diverso" style="width: 25%;">
+									<label for="bairro_for">Bairro</label>
+									<input type="text" name="bairro_for" id="txt_bairro_for" required style="height: 25px;">
+								</div>
+							</div>
+							<div class="linha">
+								<div class="campo-entrada-diverso" style="width: 60%;">
+									<label for="rua_for">Rua</label>
+									<input type="text" name="rua_for" id="txt_rua_for" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 25%;">
+									<label for="numero_for">Número</label>
+									<input type="text" name="numero_for" id="txt_numero_for" maxlength="4" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 29%;">
+									<label for="complemento_for">Complemento</label>
+									<input type="text" name="complemento_for" id="txt_complemento_for" style="height: 25px;">
+								</div>
+							</div>
+							<div class="linha">
+								<div class="campo-entrada-diverso" style="width: 12.5%;">
+									<label for="telefone">Telefone</label>
+									<input type="text" name="telefone_for" id="txt_telefone_for" maxlength="8" style="height: 25px;">
+								</div>
+								<div class="campo-entrada-diverso" style="width: 15%;">
+									<label for="celular_for">Celular</label>
+									<input type="text" name="celular_for" id="txt_celular_for" maxlength="11" required style="height: 25px;">
+								</div>
+								<div class="campo-entrada">
+									<label for="email_for">E-mail</label>
+									<input type="email" name="email_for" id="txt_email_for" required style="height: 25px;">
+								</div>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+
 			<input type="radio" name="abas" class="abas" id="aba3" checked >
 			<label for="aba3" class="abas_cab">Produtos</label>
 			<div>
