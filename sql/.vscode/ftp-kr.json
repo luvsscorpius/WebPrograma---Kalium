@@ -1,0 +1,16 @@
+{
+    "host": "172.16.80.179",
+    "username": "anderson_vitor",
+    "password": "January18Th*",
+    "remotePath": "/",
+    "protocol": "ftp",
+    "port": 21,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}

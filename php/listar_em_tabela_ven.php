@@ -22,28 +22,28 @@
     echo "		<th style=\"width:10%;\">Cod</th>";
     echo "		<th style=\"width:50%;\">Nome</th>";
     echo "		<th style=\"width:10%;\">Cel</th>";
-    echo "		<th style=\"width:10%;\">Tel</th>";
+    echo "		<th style=\"width:10%;\">Email</th>";
     echo "		<th style=\"width:10%;\">Ação</th>";
     echo "	</tr>";
     echo "</thead>";
     echo "<tbody>";
 
-    $result_cursos = "SELECT idcliente, nome, cel, tel FROM `cliente` ";
+    $result_cursos = "SELECT cod, nome, cel, email FROM `vendedores` ";
 										$resultado_cursos = mysqli_query($conexao, $result_cursos);
 										$instrucao = mysqli_query($conexao, $result_cursos);
 										
 										if($instrucao)
 										{
-											while($rows_clientes = mysqli_fetch_array($resultado_cursos))
+											while($rows_vendedores = mysqli_fetch_array($resultado_cursos))
 											{
 												echo "<tr>
-												<td style=\"width:10%;\">".$rows_clientes['idcliente']."</td>
-												<td style=\"width:50%;\">".$rows_clientes['nome']."</td>
-												<td style=\"width:10%;\">".$rows_clientes['cel']."</td>	
-												<td style=\"width:10%;\">".$rows_clientes['tel']."</td>
+												<td style=\"width:10%;\">".$rows_vendedores['cod']."</td>
+												<td style=\"width:50%;\">".$rows_vendedores['nome']."</td>
+												<td style=\"width:10%;\">".$rows_vendedores['cel']."</td>	
+												<td style=\"width:10%;\">".$rows_vendedores['email']."</td>	
 												<td style=\"width:10%;\">
-												<a href=\"../php/abas_alterar_cliente.php?id=".$rows_clientes['idcliente']."\" class=\"bt-editar\" style=\"background: green; color: white; border-radius: 2px; text-decoration:none; padding-left:11px; padding-right: 11px\">V</a>
-												<a href=\"../php/delete_cli.php?id=".$rows_clientes['idcliente']."\" class=\"bt-excluir\" style=\"background: red; color: white; border-radius: 2px; text-decoration:none; padding-left:11px; padding-right: 11px\"\">X</a>
+												<a href=\"../php/abas_alterar_ven.php?id=".$rows_vendedores['cod']."\" class=\"bt-editar\" style=\"background: green; color: white; border-radius: 2px;  text-decoration:none; padding-left:13px; padding-right: 13px;\">V</a>
+												<a href=\"../php/delete_ven.php?id=".$rows_vendedores['cod']."\" class=\"bt-excluir\" style=\"background: red; color: white; border-radius: 2px;  text-decoration:none; padding-left:13px; padding-right: 13px;\">X</a>
 												</td>
 												</tr>";
 											}
@@ -54,6 +54,7 @@
 											$erro = mysqli_error($conexao);
 											echo("<p>O seguinte erro ocorreu: ".$erro."</p>");
 										}
+										mysqli_close($conexao);
 ?>
 </body>
 </html>

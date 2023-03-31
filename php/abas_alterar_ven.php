@@ -13,8 +13,22 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	</head>
 	<body>
+    <?php
+            include("conexao.php");
+            $cod = $_GET['id'];
+            $result_cliente = "SELECT * FROM vendedores WHERE cod=".$cod;
+            $resultado_cliente = mysqli_query($conexao, $result_cliente);
+			$instrucao = mysqli_query($conexao, $result_cliente);
+            if ($instrucao){
+                $rows_clientes = mysqli_fetch_array($resultado_cliente);
+            }else {
+                $erro = mysqli_error($conexao);
+                echo "<p> O seguinte erro ocorreu: ".$erro."</p>";
+            }
+			mysqli_close($conexao);
+        ?>
 		<section class="container-abas" >
-			<input type="radio" name="abas" class="abas" id="aba1" checked>
+			<input type="radio" name="abas" class="abas" id="aba1" >
 			<label for="aba1" class="abas_cab">Cliente</label>
 			<div>
 				<section id="setor-cadastro" >
@@ -27,8 +41,8 @@
 							<div class="content" >
 							<div class="separacao" style="border:2px solid transparent;" >
 								<div class="linha-botoes">
-								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
+									<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
+									<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -196,8 +210,8 @@
 							<div class="content">
 							<div class="separacao" style="border:2px solid transparent;">
 								<div class="linha-botoes">
-								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
+								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
+								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -315,7 +329,7 @@
 				</section>
 			</div>
 
-			<input type="radio" name="abas" class="abas" id="aba6" >
+			<input type="radio" name="abas" class="abas" id="aba6" checked>
 			<label for="aba6" class="abas_cab">Vendedores</label>
 			<div>
 				<section id="setor-cadastro">
@@ -328,22 +342,22 @@
 							<div class="content">
 							<div class="separacao" style="border:2px solid transparent;">
 								<div class="linha-botoes">
-								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
+								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
+								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 30%;">
 									<label for="nome_ven">Nome</label>
-									<input type="text" name="nome_ven" id="txt_nome_ven" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['nome']; ?>" name="nome_ven" id="txt_nome_ven" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 10%;">
 									<label for="cod_ven">Cod</label>
-									<input type="number" name="cod_ven" id="txt_cod_ven" maxlength="15" required style="height: 25px;">
+									<input type="number" value="<?=$rows_clientes['cod']; ?>" name="cod_ven" id="txt_cod_ven" maxlength="15" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada">
 									<label for="senha_ven">Senha</label>
-									<input type="password" name="senha_ven" id="txt_senha_ven" maxlength="9" style="height: 25px;">
+									<input type="password" value="<?=$rows_clientes['senha']; ?>" name="senha_ven" id="txt_senha_ven" maxlength="9" style="height: 25px;">
 								</div>
 								<div class="campo-entrada">
 									<label for="conf_senha_ven">Confirmar senha</label>
@@ -351,13 +365,13 @@
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="cpf_ven">CPF</label>
-									<input type="text" name="cpf_ven" id="txt_cpf_ven" maxlength="11" style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['cpf']; ?>" name="cpf_ven" id="txt_cpf_ven" maxlength="11" style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 12%;">
 									<label for="cep_ven">CEP</label>
-									<input type="text" name="cep_ven" id="txt_cep_ven" maxlength="8" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['cep']; ?>" name="cep_ven" id="txt_cep_ven" maxlength="8" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 8%;">
 									<label for="uf_for">UF</label>
@@ -399,35 +413,35 @@
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="bairro_ven">Bairro</label>
-									<input type="text" name="bairro_ven" id="txt_bairro_for" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['bairro']; ?>" name="bairro_ven" id="txt_bairro_for" required style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 60%;">
 									<label for="rua_ven">Rua</label>
-									<input type="text" name="rua_ven" id="txt_rua_ven" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['rua']; ?>" name="rua_ven" id="txt_rua_ven" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="numero_ven">Número</label>
-									<input type="text" name="numero_ven" id="txt_numero_ven" maxlength="4" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['n']; ?>" name="numero_ven" id="txt_numero_ven" maxlength="4" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 29%;">
 									<label for="complemento_ven">Complemento</label>
-									<input type="text" name="complemento_ven" id="txt_complemento_ven" style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['complemento']; ?>" name="complemento_ven" id="txt_complemento_ven" style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 12.5%;">
 									<label for="telefone_ven">Telefone</label>
-									<input type="text" name="telefone_ven" id="txt_telefone_ven" maxlength="8" style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['tel']; ?>" name="telefone_ven" id="txt_telefone_ven" maxlength="8" style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="celular_ven">Celular</label>
-									<input type="text" name="celular_ven" id="txt_celular_ven" maxlength="11" required style="height: 25px;">
+									<input type="text" value="<?=$rows_clientes['cel']; ?>" name="celular_ven" id="txt_celular_ven" maxlength="11" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada">
 									<label for="email_ven">E-mail</label>
-									<input type="email" name="email_ven" id="txt_email_ven" required style="height: 25px;">
+									<input type="email" name="email_ven" value="<?=$rows_clientes['email']; ?>" id="txt_email_ven" required style="height: 25px;">
 								</div>
 								</div>
 								<div class="linha">
@@ -453,8 +467,8 @@
 						<div class="form-corpo">
 						<div class="separacao" style="border:2px solid transparent;" >
 								<div class="linha-botoes">
-								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
+								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
+								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -567,32 +581,22 @@
 								<div class="linha" >
 									<div class="separacao-interna">
 										<div class="campo-entrada-diverso">	
-											<label for="cliente_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Cliente</label>
-											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="1" name="tiporel">
+											<label for="cliente_rel">Cliente</label>
+											<input id="txt_clt_rel" type="radio" value="1" name="tiporel">
 										</div>
 									</div>
-
 									<div class="separacao-interna">
-										<div class="campo-entrada-diverso">	
-											<label for="fornecedor_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Fornecedor</label>
-											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_for_rel" type="radio" value="2" name="tiporel">
+										<div class="campo-entrada-diverso">
+											<label for="fornecedor_rel">Fornecedor</label>
+											<input id="txt_for_rel" type="radio" value="2" name="tiporel">
 										</div>
 									</div>
-
-									<div class="separacao-interna">
-										<div class="campo-entrada-diverso">	
-											<label for="vendedores_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Vendedores</label>
-											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="4" name="tiporel">
+									<div class="separacao-interna"  >
+										<div class="campo-entrada-diverso">
+											<label for="produto_rel">Produto</label>
+											<input id="txt_prod_rel" type="radio" value="3" name="tiporel">
 										</div>
 									</div>
-
-									<div class="separacao-interna">
-										<div class="campo-entrada-diverso">	
-											<label for="produtos_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Produtos</label>
-											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_prod_rel" type="radio" value="3" name="tiporel">
-										</div>
-									</div>
-									
 								</div>
 							</div>
 							<div class="separacao">
@@ -625,9 +629,9 @@
 								</div>
 							</div>
 							<div class="separacao" style="border:2px solid gray;">
-								<div class="linha" style="display: flex; align-items: center; justify-content: center;"	>
-									<button type="submit" class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Gerar</button>		
-									<button type="reset" class="btn btn-sep"><i class="fa-solid fa-broom"></i>Limpar</button>
+								<div class="linha">
+									<button type="submit" class="btn1 btn-sep1" id="icon-gerar" style="margin-left:37%;">Gerar</button>		
+									<button type="reset" class="btn1 btn-sep1" id="icon-limpar">Limpar</button>
 									<p id="teste"></p>
 								</div>
 							</div>
