@@ -29,11 +29,11 @@
         ?>
 
 		<section class="container-abas" >
-			<input type="radio" name="abas" class="abas" id="aba1" >
+		<input type="radio" name="abas" class="abas" id="aba1" checked>
 			<label for="aba1" class="abas_cab">Cliente</label>
 			<div>
 				<section id="setor-cadastro" >
-					<form class="form-cadastro" method="post" action="../php/cadastro_cliente.php" >
+					<form class="form-cadastro" method="post">
 						<!-- Cabeçalho do Formulário -->
 						<div class="cabeca">
 							<h2 style="color: #1BBA93; font-weight: bold;">Cadastro de Clientes</h2>
@@ -42,8 +42,8 @@
 							<div class="content" >
 							<div class="separacao" style="border:2px solid transparent;" >
 								<div class="linha-botoes">
-									<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-									<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
+								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Salvar</button>		
+								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -62,7 +62,7 @@
 									<label for="cpf_cli">CPF / CPNJ</label>
 									<input type="text" name="cpf_cli" id="txt_cpf_cli" maxlength="15" required style="height: 25px;">
 								</div>
-								<div class="campo-entrada">
+								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="ie_cli">IE</label>
 									<input type="text" name="ie_cli" id="txt_ie_cli" maxlength="9" style="height: 25px;">
 								</div>
@@ -72,7 +72,7 @@
 									<label for="nome_cli">Nome</label>
 									<input type="text" name="nome_cli" id="txt_nome_cli" required style="height: 25px;">
 								</div>
-								<div class="campo-entrada-diverso">
+								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="nasc_cli">Nasc</label>
 									<input type="date" name="nasc_cli" id="txt_nasc_cli" style="height: 25px;">
 								</div>
@@ -105,7 +105,7 @@
 										<option value="divorciado">Divorciado</option>
 									</select>
 								</div>
-								<div class="campo-entrada">
+								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="dta_cad_cli">Dta. Cad</label>
 									<input type="date" name="dta_cad_cli" id="txt_dta_cad_cli" required style="height: 25px;">
 								</div>
@@ -159,7 +159,7 @@
 								</div>
 							</div>
 							<div class="linha">
-								<div class="campo-entrada-diverso" style="width: 70%;">
+								<div class="campo-entrada-diverso" style="width: 75%;">
 									<label for="rua_cli">Rua</label>
 									<input type="text" name="rua_cli" id="txt_rua_cli" required style="height: 25px;">
 								</div>
@@ -167,7 +167,7 @@
 									<label for="numero_cli">Número</label>
 									<input type="text" name="numero_cli" id="txt_num_cli" maxlength="4" required style="height: 25px;">
 								</div>
-								<div class="campo-entrada-diverso" style="width: 20%;">
+								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="complemento_cli">Complemento</label>
 									<input type="text" name="complemento_cli" id="txt_complemento_cli" style="height: 25px;">
 								</div>
@@ -211,8 +211,8 @@
 							<div class="content">
 							<div class="separacao" style="border:2px solid transparent;">
 								<div class="linha-botoes">
-								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
+								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Salvar</button>		
+								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -228,7 +228,7 @@
 									<label for="ie_for">IE</label>
 									<input type="text" value="<?=$rows_fornecedor['ie']; ?>" name="ie_for" id="txt_ie_for" maxlength="9" style="height: 25px;">
 								</div>
-								<div class="campo-entrada">
+								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="i_municipal_for">I. Municipal</label>
 									<input type="text" value="<?=$rows_fornecedor['im']; ?>" name="i_municipal_for" id="txt_i_municipal_for" maxlength="9" style="height: 25px;">
 								</div>
@@ -282,8 +282,8 @@
 								</div>
 								<div class="campo-entrada">
 									<label for="cidade_for">Cidade</label>
-									<select  name="cidade_for" style="height: 25px;">
-										<?php include("lista_cidade_be.php") ?>
+									<select name="cidade_for" style="height: 25px;">
+									<?php include("../php/lista_cidade_be.php") ?>
 									</select>
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
@@ -292,15 +292,15 @@
 								</div>
 							</div>
 							<div class="linha">
-								<div class="campo-entrada-diverso" style="width: 70%;">
-									<label for="rua_for">Rua</label>
+								<div class="campo-entrada-diverso" style="width: 75%;">
+									<label for="rua_ven">Rua</label>
 									<input type="text" value="<?=$rows_fornecedor['rua']; ?>" name="rua_for" id="txt_rua_for" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 10%;">
 									<label for="numero_for">Número</label>
 									<input type="text" value="<?=$rows_fornecedor['num']; ?>" name="numero_for" id="txt_numero_for" maxlength="4" required style="height: 25px;">
 								</div>
-								<div class="campo-entrada-diverso" style="width: 20%;">
+								<div class="campo-entrada-diverso" style="width: 15%;">
 									<label for="complemento_for">Complemento</label>
 									<input type="text" value="<?=$rows_fornecedor['complemento']; ?>" name="complemento_for" id="txt_complemento_for" style="height: 25px;">
 								</div>
@@ -330,11 +330,12 @@
 				</section>
 			</div>
 
+
 			<input type="radio" name="abas" class="abas" id="aba6" >
 			<label for="aba6" class="abas_cab">Vendedores</label>
 			<div>
 				<section id="setor-cadastro">
-					<form id="form-vendas" method= "post" action="../php/cadastro_fornecedor.php">
+					<form id="form-vendas" method= "post">
 						<!-- Cabeçalho do Formulário -->
 						<div class="cabeca">
 							<h2 style="color: #1BBA93; font-weight: bold;">Cadastro de Vendedores</h2>
@@ -343,8 +344,8 @@
 							<div class="content">
 							<div class="separacao" style="border:2px solid transparent;">
 								<div class="linha-botoes">
-								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
+								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Salvar</button>		
+								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -366,13 +367,13 @@
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
 									<label for="cpf_ven">CPF</label>
-									<input type="number" name="cpf_ven" id="txt_cpf_ven" maxlength="9" style="height: 25px;">
+									<input type="text" name="cpf_ven" id="txt_cpf_ven" maxlength="11" style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 12%;">
-									<label for="cep_for">CEP</label>
-									<input type="text" name="cep_for" id="txt_cep_for" maxlength="8" required style="height: 25px;">
+									<label for="cep_ven">CEP</label>
+									<input type="text" name="cep_ven" id="txt_cep_ven" maxlength="8" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 8%;">
 									<label for="uf_for">UF</label>
@@ -407,44 +408,49 @@
 									</select>
 								</div>
 								<div class="campo-entrada">
-									<label for="cidade_for">Cidade</label>
-									<select name="cidade_for" style="height: 25px;">
+									<label for="cidade_ven">Cidade</label>
+									<select name="cidade_ven" style="height: 25px;">
 									<?php include("../php/lista_cidade_be.php") ?>
 									</select>
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
-									<label for="bairro_for">Bairro</label>
-									<input type="text" name="bairro_for" id="txt_bairro_for" required style="height: 25px;">
+									<label for="bairro_ven">Bairro</label>
+									<input type="text" name="bairro_ven" id="txt_bairro_for" required style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 60%;">
-									<label for="rua_for">Rua</label>
-									<input type="text" name="rua_for" id="txt_rua_for" required style="height: 25px;">
+									<label for="rua_ven">Rua</label>
+									<input type="text" name="rua_ven" id="txt_rua_ven" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 25%;">
-									<label for="numero_for">Número</label>
-									<input type="text" name="numero_for" id="txt_numero_for" maxlength="4" required style="height: 25px;">
+									<label for="numero_ven">Número</label>
+									<input type="text" name="numero_ven" id="txt_numero_ven" maxlength="4" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 29%;">
-									<label for="complemento_for">Complemento</label>
-									<input type="text" name="complemento_for" id="txt_complemento_for" style="height: 25px;">
+									<label for="complemento_ven">Complemento</label>
+									<input type="text" name="complemento_ven" id="txt_complemento_ven" style="height: 25px;">
 								</div>
 							</div>
 							<div class="linha">
 								<div class="campo-entrada-diverso" style="width: 12.5%;">
-									<label for="telefone">Telefone</label>
-									<input type="text" name="telefone_for" id="txt_telefone_for" maxlength="8" style="height: 25px;">
+									<label for="telefone_ven">Telefone</label>
+									<input type="text" name="telefone_ven" id="txt_telefone_ven" maxlength="8" style="height: 25px;">
 								</div>
 								<div class="campo-entrada-diverso" style="width: 15%;">
-									<label for="celular_for">Celular</label>
-									<input type="text" name="celular_for" id="txt_celular_for" maxlength="11" required style="height: 25px;">
+									<label for="celular_ven">Celular</label>
+									<input type="text" name="celular_ven" id="txt_celular_ven" maxlength="11" required style="height: 25px;">
 								</div>
 								<div class="campo-entrada">
-									<label for="email_for">E-mail</label>
-									<input type="email" name="email_for" id="txt_email_for" required style="height: 25px;">
+									<label for="email_ven">E-mail</label>
+									<input type="email" name="email_ven" id="txt_email_ven" required style="height: 25px;">
 								</div>
-							</div>
+								</div>
+								<div class="linha">
+								<div class="campo-entrada">
+									<label for="obs_ven">Observações</label>
+									<textarea name="obs_ven" id="txt_obs_ven"> </textarea>
+								</div>
 						</div>
 					</form>
 				</section>
@@ -454,7 +460,7 @@
 			<label for="aba3" class="abas_cab">Produtos</label>
 			<div>
 				<section id="setor-cadastro">
-					<form id="form-cadastro-pro" method="post" action="../php/cadastro_produto.php">
+					<form id="form-cadastro-pro" method="post">
 						<!-- Cabeçalho do Formulário -->
 						<div class="cabeca">
 							<h2 style="color: #1BBA93; font-weight: bold;">Cadastro de produtos</h2>
@@ -462,8 +468,8 @@
 						<div class="form-corpo">
 						<div class="separacao" style="border:2px solid transparent;" >
 								<div class="linha-botoes">
-								<button class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Novo</button>		
-								<button class="btn btn-sep" id="icon-imprimir"><i class="fa-solid fa-print"></i>Imprimir</button>
+								<button class="btn btn-sep" type="submit"><i class="fa-solid fa-file-pen"></i>Salvar</button>		
+								<button class="btn btn-sep" type="reset"><i class="fa-solid fa-broom"></i>Limpar</button>
 								</div>
 							</div>
 							<div class="linha">
@@ -493,7 +499,7 @@
 							<div class="linha">
 								<div class="campo-entrada-diverso">
 									<label for="fornecedor_pro">Fornecedor</label>
-									<select name="cod_fornecedor_pro" style="height: 25px; width: 850px;">
+									<select name="cod_fornecedor_pro" style="height: 25px; width: 1075px;">
 										<?php include("../php/lista_fornecedor_be.php") ?>
 									</select>
 								</div>
@@ -562,11 +568,12 @@
 					</form>
 				</section>
 			</div>
+
 			<input type="radio" name="abas" class="abas" id="aba4">
 			<label for="aba4" class="abas_cab">Relatório</label>
 			<div >
 				<section id="setor-cadastro">
-					<form id="form-relatorio" method="post" action="../php/relatorio.php">
+					<form id="form-relatorio" method="post">
 						<!-- Cabeçalho do Formulário -->
 						<div class="cabeca">
 							<h2 style="color: #1BBA93; font-weight: bold;">Relatório</h2>
@@ -576,22 +583,32 @@
 								<div class="linha" >
 									<div class="separacao-interna">
 										<div class="campo-entrada-diverso">	
-											<label for="cliente_rel">Cliente</label>
-											<input id="txt_clt_rel" type="radio" value="1" name="tiporel">
+											<label for="cliente_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Cliente</label>
+											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="1" name="tiporel">
 										</div>
 									</div>
+
 									<div class="separacao-interna">
-										<div class="campo-entrada-diverso">
-											<label for="fornecedor_rel">Fornecedor</label>
-											<input id="txt_for_rel" type="radio" value="2" name="tiporel">
+										<div class="campo-entrada-diverso">	
+											<label for="fornecedor_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Fornecedor</label>
+											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_for_rel" type="radio" value="2" name="tiporel">
 										</div>
 									</div>
-									<div class="separacao-interna"  >
-										<div class="campo-entrada-diverso">
-											<label for="produto_rel">Produto</label>
-											<input id="txt_prod_rel" type="radio" value="3" name="tiporel">
+
+									<div class="separacao-interna">
+										<div class="campo-entrada-diverso">	
+											<label for="vendedores_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Vendedores</label>
+											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="4" name="tiporel">
 										</div>
 									</div>
+
+									<div class="separacao-interna">
+										<div class="campo-entrada-diverso">	
+											<label for="produtos_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Produtos</label>
+											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_prod_rel" type="radio" value="3" name="tiporel">
+										</div>
+									</div>
+									
 								</div>
 							</div>
 							<div class="separacao">
@@ -624,9 +641,9 @@
 								</div>
 							</div>
 							<div class="separacao" style="border:2px solid gray;">
-								<div class="linha">
-									<button type="submit" class="btn1 btn-sep1" id="icon-gerar" style="margin-left:37%;">Gerar</button>		
-									<button type="reset" class="btn1 btn-sep1" id="icon-limpar">Limpar</button>
+								<div class="linha" style="display: flex; align-items: center; justify-content: center;"	>
+									<button type="submit" class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Gerar</button>		
+									<button type="reset" class="btn btn-sep"><i class="fa-solid fa-broom"></i>Limpar</button>
 									<p id="teste"></p>
 								</div>
 							</div>
@@ -671,6 +688,20 @@
 									<div class="campo-entrada-diverso" style="width:100%;">
 										<?php
 											include("../php/listar_em_tabela_pro.php");
+											?>
+									</div>
+								</div>
+							</div>
+							<div class="separacao" style="width:99%;">
+								<div class="cabeca">
+									<h1 style="padding:0px;">Vendedores</h1>
+								</div>
+							</div>
+							<div class="separacao" style="width:99%; height:100px; overflow:auto;">
+								<div class="linha">
+									<div class="campo-entrada-diverso" style="width:100%;">
+										<?php
+											include("../php/listar_em_tabela_ven.php");
 											?>
 									</div>
 								</div>
