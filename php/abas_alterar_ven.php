@@ -578,26 +578,34 @@
 						</div>
 						<div class="form-corpo">
 							<div class="separacao" >
-								<div class="linha" >
+							<div class="linha" >
 									<div class="separacao-interna">
 										<div class="campo-entrada-diverso">	
-											<label for="cliente_rel">Cliente</label>
-											<input id="txt_clt_rel" type="radio" value="1" name="tiporel">
+											<label for="cliente_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Cliente</label>
+											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="1" name="tiporel">
 										</div>
 									</div>
+
 									<div class="separacao-interna">
-										<div class="campo-entrada-diverso">
-											<label for="fornecedor_rel">Fornecedor</label>
-											<input id="txt_for_rel" type="radio" value="2" name="tiporel">
+										<div class="campo-entrada-diverso">	
+											<label for="fornecedor_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Fornecedor</label>
+											<input  style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_for_rel" type="radio" value="2" name="tiporel">
 										</div>
 									</div>
-									<div class="separacao-interna"  >
-										<div class="campo-entrada-diverso">
-											<label for="produto_rel">Produto</label>
-											<input id="txt_prod_rel" type="radio" value="3" name="tiporel">
+
+									<div class="separacao-interna">
+										<div class="campo-entrada-diverso">	
+											<label for="vendedores_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Vendedores</label>
+											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_clt_rel" type="radio" value="4" name="tiporel">
 										</div>
 									</div>
-								</div>
+
+									<div class="separacao-interna">
+										<div class="campo-entrada-diverso">	
+											<label for="produtos_rel" style="margin:-1px;padding:-1px; margin-left: 50px;">Produtos</label>
+											<input style="margin-top:-19px; margin-left:100px;padding-top:-10px;" id="txt_prod_rel" type="radio" value="3" name="tiporel">
+										</div>
+									</div>
 							</div>
 							<div class="separacao">
 								<div class="linha">
@@ -615,7 +623,7 @@
 								<div class="linha">
 									<div class="campo-entrada-diverso" style="width:70%;">
 										<label for="nome">Cidade</label>
-										<select name="cidade_rel">
+										<select name="cidade_rel" style="height: 25px;">
 											<option value="0">--</option>
 											<?php
 												include("../php/lista_cidade_be.php");
@@ -629,9 +637,9 @@
 								</div>
 							</div>
 							<div class="separacao" style="border:2px solid gray;">
-								<div class="linha">
-									<button type="submit" class="btn1 btn-sep1" id="icon-gerar" style="margin-left:37%;">Gerar</button>		
-									<button type="reset" class="btn1 btn-sep1" id="icon-limpar">Limpar</button>
+								<div class="linha" style="display: flex; align-items: center; justify-content: center;"	>
+									<button type="submit" class="btn btn-sep" id="icon-novo"><i class="fa-solid fa-file-pen"></i>Gerar</button>		
+									<button type="reset" class="btn btn-sep"><i class="fa-solid fa-broom"></i>Limpar</button>
 									<p id="teste"></p>
 								</div>
 							</div>

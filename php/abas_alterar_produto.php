@@ -459,7 +459,7 @@
 			<label for="aba3" class="abas_cab">Produtos</label>
 			<div>
 				<section id="setor-cadastro">
-					<form id="form-cadastro-pro" method="post">
+					<form id="form-cadastro-pro" method="post" action="muda_produto.php">
 						<!-- Cabeçalho do Formulário -->
 						<div class="cabeca">
 							<h2 style="color: #1BBA93; font-weight: bold;">Cadastro de produtos</h2>
@@ -626,7 +626,7 @@
 								<div class="linha">
 									<div class="campo-entrada-diverso" style="width:70%;">
 										<label for="nome">Cidade</label>
-										<select name="cidade_rel">
+										<select name="cidade_rel" style="height: 25px;">
 											<option value="0">--</option>
 											<?php
 												include("../php/lista_cidade_be.php");

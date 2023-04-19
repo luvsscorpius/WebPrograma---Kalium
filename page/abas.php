@@ -612,7 +612,7 @@
 								<div class="linha">
 									<div class="campo-entrada-diverso" style="width:70%;">
 										<label for="nome">Cidade</label>
-										<select name="cidade_rel">
+										<select name="cidade_rel" style="height: 25px;">
 											<option value="0">--</option>
 											<?php
 												include("../php/lista_cidade_be.php");
